@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="utf-8">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     @yield('meta')
 
     <title>@yield('title')</title>
@@ -31,7 +32,6 @@
     <script src="{{mix('js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{mix('js/perfect-scrollbar.min.js')}}"></script>
     <script src="{{mix('js/mousetrap.min.js')}}"></script>
-    {{--    <script src="{{mix('js/app.js')}}"></script>--}}
     @stack('script')
 </body>
 </html>

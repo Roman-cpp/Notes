@@ -15,6 +15,16 @@ return new class extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('tag_id')
+                ->nullable()
+                ->constrained()
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+            $table->string('title');
+            $table->string('description', 8000)
+                ->nullable();
+            $table->boolean('isFavourites')
+                ->default(false);
             $table->timestamps();
         });
     }

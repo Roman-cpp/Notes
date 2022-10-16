@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\TagController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,10 +15,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('project.index');
-});
+
+Route::resource('project',ProjectController::class);
+
 
 Route::get('plan', function () {
     return view('plan.index');
-});
+})->name('plan');
+
+Route::post('tt', [TagController::class, 'index']);
